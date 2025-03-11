@@ -3,7 +3,7 @@ package eazySchool.eazySchool;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//80 start kr
+//80
 @SpringBootApplication
 public class EazySchoolApplication {
 
