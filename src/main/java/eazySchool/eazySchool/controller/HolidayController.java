@@ -1,17 +1,29 @@
 package eazySchool.eazySchool.controller;
 
 import eazySchool.eazySchool.model.Holiday;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Controller
 public class HolidayController {
+    private static final Logger log = LoggerFactory.getLogger(HolidayController.class);
+
     @GetMapping("/holidays")
-    public String displayHolidayPage(Model model){
+    public String displayHolidayPage(@RequestParam("festival") boolean festival,
+                                     @RequestParam("federal") boolean federal,
+                                     Model model){
+        model.addAttribute("festival",festival);
+        model.addAttribute("federal",federal);
+        log.info("Name: ",model);
         List<Holiday> holidays = List.of(
             new Holiday("01/01/2021","New Year Day",Holiday.Type.FEDERAL),
             new Holiday("02/14/2021","Valentine's Day",Holiday.Type.FESTIVAL),
