@@ -65,10 +65,10 @@ public class HolidayController {
         }
         if(display.equals("federal")){
             model.addAttribute("federal",true);
-//            model.addAttribute("festival",false);
+            model.addAttribute("festival",false);
         }else if(display.equals("festival")){
             model.addAttribute("festival",true);
-//            model.addAttribute("federal",false);
+            model.addAttribute("federal",false);
         }
         else{
             model.addAttribute("festival",true);
